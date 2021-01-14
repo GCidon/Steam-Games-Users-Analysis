@@ -8,7 +8,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 <script>
   CsvToHtmlTable.init({
-    csv_path: 'data/Health Clinics in Chicago.csv', 
+    csv_path: 'data/Genres.csv', 
     element: 'table-container', 
     allow_download: true,
     csv_options: {separator: ',', delimiter: '"'},
