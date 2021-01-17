@@ -34,8 +34,5 @@ df = df.withColumn('average_playtime', df['average_playtime'].cast("float"))
 
 df= df.select('developer','average_playtime').groupBy('developer').avg('average_playtime')
 
-df = df.filter(col("avg(average_playtime)").cast("float"))
-
 df.coalesce(1).write.option("inferSchema","true").csv("DeveloperMediaPlayTime",header='true')
-
 
