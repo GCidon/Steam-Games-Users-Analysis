@@ -95,11 +95,15 @@
 										<h2><a href="#">Primis eget<br />
 										imperdiet lorem</a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/Top10CommonGenres.png" alt="" /></a>
+									<a href="#" class="image fit"><img src="images/Top10RecommendedGenres.png" alt="" /></a>
 									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
 									<ul class="actions special">
-										<li><a class="button">Full Story</a></li>
+										<li><a class="button" id="genreRecommend">Show complete data</a></li>
 									</ul>
+									<div id="dataGenreRecommend" style="height:100px;overflow:auto;display:none;">
+										<table id="data">
+										</table>
+									</div>
 								</article>
 								<article>
 									<header>
@@ -254,6 +258,18 @@
 				{
 					document.getElementById('dataGenre').style.display = "block";
 					$('#dataGenre').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#genreRecommend').click(function(){
+				$.ajax({
+				url:"data/genre_recommendations.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataGenreRecommend').style.display = "block";
+					$('#dataGenreRecommend').append(arrayToTable(Papa.parse(data).data));
 				}
 				});
     		});
