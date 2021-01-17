@@ -4,42 +4,40 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 </head>
 <body>
+  <table id="data">
+  </table>
 
-  <button id="Genres">Genres</button>
-  <button id="Genre_price">Average price per gender</button>
-  <div style="height:100px;overflow:auto;">
-    <table id="data">
-    </table>
-  </div>
+  <button id="Genres">Export HTML Table To CSV File</button>
 
   <script>
     function arrayToTable(tableData) {
-        var table = $('<table></table>');
-        $(tableData).each(function (i, rowData) {
-            var row = $('<tr></tr>');
-            $(rowData).each(function (j, cellData) {
-                row.append($('<td>'+cellData+'</td>'));
-            });
-            table.append(row);
-        });
-        return table;
+      var employee_data = data.split(/\r?\n|\r/);
+        var table_data = '<table class="table table-bordered table-striped">';
+        for(var count = 0; count<employee_data.length; count++)
+        {
+        var cell_data = employee_data[count].split(",");
+        table_data += '<tr>';
+        for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+        {
+          if(count === 0)
+          {
+          table_data += '<th>'+cell_data[cell_count]+'</th>';
+          }
+          else
+          {
+          table_data += '<td>'+cell_data[cell_count]+'</td>';
+          }
+        }
+        table_data += '</tr>';
+        }
+        table_data += '</table>';
+        $('#data').html(table_data);
     }
 
     $(document).ready(function(){
     $('#Genres').click(function(){
       $.ajax({
       url:"data/Genres.csv",
-      dataType:"text",
-      success:function(data)
-      {
-        $('body').append(arrayToTable(Papa.parse(data).data));
-      }
-      });
-    });
-
-    $('#Genre_price').click(function(){
-      $.ajax({
-      url:"data/avg_price_genres.csv",
       dataType:"text",
       success:function(data)
       {
