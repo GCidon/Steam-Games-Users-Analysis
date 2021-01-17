@@ -31,29 +31,7 @@
         });
         return table;
     }
-
-    $(document).ready(function(){
-      $.ajax({
-      url:"data/Genres.csv",
-      dataType:"text",
-      success:function(data)
-      {
-        $('#dataGenre').append(arrayToTable(Papa.parse(data).data));
-      }
-      });
-    });
-
-      $(document).ready(function(){
-      $.ajax({
-      url:"data/avg_price_genres.csv",
-      dataType:"text",
-      success:function(data)
-      {
-        $('#priceGenre').append(arrayToTable(Papa.parse(data).data));
-      }
-      });
-    });
-
+    
     $('#Genres').click(function(){
       $.ajax({
       url:"data/Genres.csv",
