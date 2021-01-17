@@ -33,8 +33,7 @@
       dataType:"text",
       success:function(data)
       {
-
-        document.getElementById('data').innerHTML = arrayToTable(Papa.parse(data).data);
+        $('body').append(arrayToTable(Papa.parse(data).data));
       }
       });
     });
@@ -45,7 +44,7 @@
       dataType:"text",
       success:function(data)
       {
-        document.getElementById('data').innerHTML = arrayToTable(Papa.parse(data).data);
+        $('body').append(arrayToTable(Papa.parse(data).data));
       }
       });
     });
