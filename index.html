@@ -168,27 +168,37 @@
 							<section class="posts">
 								<article>
 									<header>
-										<span class="date">April 11, 2017</span>
-										<h2><a href="#">Odio magna<br />
-										sed consectetur</a></h2>
+										<h2><a href="#">Sales and average hours spent by users<br /></a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
+									<a href="#" class="image fit"><img src="images/SalesHours.png" alt="" /></a>
+									<p>Through this study, we have discovered that it exists a relationship between sales and playtime spent by
+										players in an application. It is important to say that there are only a few games in the higher sale scale,
+										and these games are the most famous games in the Steam library, so that's why their average playtime is so high
+										compared with other results such as the average playtime per gender.</p>
+										<ul class="actions special">
+											<li><a class="button" id="salesTime">Show complete data</a></li>
+										</ul>
+										<div id="dataSalesTime" style="height:100px;overflow:auto;display:none;">
+											<table id="data">
+											</table>
+										</div>
 								</article>
 								<article>
 									<header>
-										<span class="date">April 7, 2017</span>
-										<h2><a href="#">Augue lorem<br />
-										primis vestibulum</a></h2>
+										<h2><a href="#">Sales and average price of product<br /></a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
+									<a href="#" class="image fit"><img src="images/SalesPrice.png" alt="" /></a>
+									<p>We might see a correlation between sales and price, but we might not have enough information
+										to get to a detailed conclusion. Something curious we've found is that two sale ranges have only a 
+										few games on them and everyone of them is free to play.
+									</p>
+										<ul class="actions special">
+											<li><a class="button" id="salesPrice">Show complete data</a></li>
+										</ul>
+										<div id="dataSalesPrice" style="height:100px;overflow:auto;display:none;">
+											<table id="data">
+											</table>
+										</div>
 								</article>
 							</section>
 						<!-- Footer -->
@@ -331,6 +341,30 @@
 				{
 					document.getElementById('dataGenreTime').style.display = "block";
 					$('#dataGenreTime').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#salesTime').click(function(){
+				$.ajax({
+				url:"data/VentasHorasJugadas.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataSalesTime').style.display = "block";
+					$('#dataSalesTime').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#salesPrice').click(function(){
+				$.ajax({
+				url:"data/VentasPrecio.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataSalesPrice').style.display = "block";
+					$('#dataSalesPrice').append(arrayToTable(Papa.parse(data).data));
 				}
 				});
     		});
