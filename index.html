@@ -22,7 +22,7 @@
             $(rowData).each(function (j, cellData) {
                 row.append($('<td>'+cellData+'</td>'));
             });
-            table.append(row);
+            $(table).find('data').append(row);
         });
         return table;
     }
@@ -34,7 +34,7 @@
       dataType:"text",
       success:function(data)
       {
-        $('body').append(arrayToTable(Papa.parse(data).data));
+        arrayToTable(Papa.parse(data).data);
       }
       });
     });
@@ -45,7 +45,7 @@
       dataType:"text",
       success:function(data)
       {
-        $('body').append(arrayToTable(Papa.parse(data).data));
+        arrayToTable(Papa.parse(data).data);
       }
       });
     });
