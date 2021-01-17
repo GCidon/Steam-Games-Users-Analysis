@@ -35,7 +35,7 @@ dfpositive = dfpositive.withColumnRenamed('owners', 'OWN')
 
 dfrango = dfpositive.join(dfnegative, dfpositive.OWN == dfnegative.owners, how = 'full')
 
-dfrango = dfrango.withColumn('rango',dfrango['avg(positive_ratings)']/(dfrango['avg(positive_ratings)']+dfrango['avg(negative_ratings)']))
+dfrango = dfrango.withColumn('rango',dfrango['avg(negative_ratings)']/dfrango['avg(positive_ratings)'])
 
 dfrango= dfrango.select('owners','rango').orderBy('rango')
 
