@@ -217,18 +217,16 @@
 									<header>
 										<h2><a href="#">Developers and price<br /></a></h2>
 									</header>
-									<p>The following diagrams resemble different relationships related to the products' sales.
-										In these part we have analysed and compared different parameters such as sales and price or sales
-										throughout the year.</p>
-									<a href="#" class="image fit"><img src="images/SalesPrice.png" alt="" /></a>
-									<p>We might see a correlation between sales and price, but we might not have enough information
-										to get to a detailed conclusion. Something curious we've found is that two sale ranges have only a 
-										few games on them and everyone of them is free to play.
+									<a href="#" class="image fit"><img src="images/DeveloperPrice.png" alt="" /></a>
+									<p>We have also studied the prices for different developers. These information might not be very
+										conclusive by itself, and there is no much we can get from it. The number one developer whith
+										the highest price is a Finnish company who accidentally put its game price into 400$.
 									</p>
+									<p href="https://vandal.elespanol.com/noticia/1350708354/el-juego-mas-caro-del-mundo-es-un-simulador-de-etiquetas-peligrosas/">Más información aquí.</p>
 										<ul class="actions special">
-											<li><a class="button" id="salesPrice">Show complete data</a></li>
+											<li><a class="button" id="developersPrice">Show complete data</a></li>
 										</ul>
-										<div id="dataSalesPrice" style="height:100px;overflow:auto;display:none;">
+										<div id="dataDevelopersPrice" style="height:100px;overflow:auto;display:none;">
 											<table id="data">
 											</table>
 										</div>
@@ -317,6 +315,18 @@
 				{
 					document.getElementById('dataSalesPrice').style.display = "block";
 					$('#dataSalesPrice').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#developersPrice').click(function(){
+				$.ajax({
+				url:"data/maxPricePrecio-Developer.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataDevelopersPrice').style.display = "block";
+					$('#dataDevelopersPrice').append(arrayToTable(Papa.parse(data).data));
 				}
 				});
     		});
