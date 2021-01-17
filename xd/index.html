@@ -19,8 +19,8 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						<h1>STEMA<br />
-						TO' CREMA</h1>
+						<h1>STEAM PRODUCTS<br />
+						DATA ANALYSIS</h1>
 						<p>Este es un estudio sobre los productos de Steam</a>.</p>
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
@@ -211,8 +211,71 @@
 					<div id="copyright">
 						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
-
 			</div>
+
+			<div class="container" style="padding:10px 10px;">
+				<h1>Lectura de Géneros</h1>
+				<div id="header">
+
+				</div>
+				<div class="well">
+					<div class="row" id="csv-display" style="height:500px;overflow: scroll">
+					</div>
+				</div>
+			</div>
+			
+			<script type="text/javascript">
+			$(document).ready(function(){
+				$('#header').load('../header-ads.html');
+				$('#footer').load('../footer-ads.html');
+				var data;
+					$.ajax({
+					type: "GET",  
+					url: "data/Genres.csv",
+					dataType: "text",       
+					success: function(response)  
+					{
+						data = $.csv.toArrays(response);
+						generateHtmlTable(data);
+					}   
+					});
+				function generateHtmlTable(data) {
+					var html = '<table  class="table table-condensed table-hover table-striped">';
+				
+					if(typeof(data[0]) === 'undefined') {
+						return null;
+					} else {
+						$.each(data, function( index, row ) {
+						//bind header
+						if(index == 0) {
+							html += '<thead>';
+							html += '<tr>';
+							$.each(row, function( index, colData ) {
+								html += '<th>';
+								html += colData;
+								html += '</th>';
+							});
+							html += '</tr>';
+							html += '</thead>';
+							html += '<tbody>';
+						} else {
+							html += '<tr>';
+							$.each(row, function( index, colData ) {
+								html += '<td>';
+								html += colData;
+								html += '</td>';
+							});
+							html += '</tr>';
+						}
+						});
+						html += '</tbody>';
+						html += '</table>';
+						alert(html);
+						$('#csv-display').append(html);
+					}
+				}
+			}
+			</script>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
