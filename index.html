@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>STEMA TO CREMA</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>STEAM PRODUCTS<br />
+						DATA ANALYSIS</h1>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Introduction to the project</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Description</a></li>
+							<li><a href="generic.html">Generic Page</a></li>
+							<li><a href="elements.html">Elements Reference</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<span class="date">April 25, 2017</span>
+									<h2><a>Steam data and its analysis</a></h2>
+									<a class="image main"><img src="images/steam.jpg" alt="" /></a>
+									<p>Steam is a software and videogame platform with more than 30.000 videogames 
+										and applications on its store. This platform already has more than 95 million users,
+										leading to massive amount of data which can only be processed by using highly demmanding
+										programs.
+									</p>
+									<p>
+										In this project we will show the results of our studies and the process we have elaborated by using
+										pyspark and hadoop in order to process this large amounts of data. 
+									</p>
+								</header>
+							</article>
+
+							<header style="text-align: center;">
+								<h2><a>RESULTS OF THE STUDY</a></h2>
+							</header>
+							<header style="text-align: center;">
+								<h3><a>STUDIES OF PRODUCTS ACCORDING TO THEIR GENRE</a></h3>
+								<p>The following diagrams belong to our studies of the different genres of the products
+									of the Steam library, comparing them with different parameters such as time users expend on them
+									or the average price of each of the genres.
+								</p>
+							</header>
+						<!-- Posts -->
+							<section class="posts">
+								<article>
+									<header>
+										<h2><a href="#">Number of Genre Appearance</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/Top10CommonGenres.png" alt="" /></a>
+									<p>This image shows the most common genres in the Steam store.
+										The study has lead us to see that the most common genre according to the Steam dta
+										is "Indie" which make sense because Steam is the biggest platform fro Indie games.
+									</p>
+									<ul class="actions special">
+										<li><a class="button" id="GenreNumber">Show csv</a></li>
+									</ul>
+									<div id="dataGenre" style="height:100px;overflow:auto;display:none;">
+										<table id="data">
+										</table>
+									</div>
+									<ul class="actions special">
+										<li><a class="button" href="data/Genres.csv" download="data/Genres.csv">Download data</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<h2><a href="#">Most recommended genres</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/Top10RecommendedGenres.png" alt="" /></a>
+									<p>After the study, we have discovered that history related genres are the most liked by the community.
+										Users who like these type of genre seem to be more devoted to recommend and upvote these games.
+										These 10 genres showed in the image above are the most recommended by players.
+									</p>
+									<ul class="actions special">
+										<li><a class="button" id="genreRecommend">Show complete data</a></li>
+									</ul>
+									<div id="dataGenreRecommend" style="height:100px;overflow:auto;display:none;">
+										<table id="data">
+										</table>
+									</div>
+									<ul class="actions special">
+										<li><a class="button" href="data/genre_recommendations.csv" download="data/genre_recommendations.csv">Download data</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<h2><a>Average price per genre</a></h2>
+									</header>
+									<a class="image fit"><img src="images/Top10ExpensiveGenres.png" alt="" /></a>
+									<p>We have also compared each genre and its average price. The results show us that the software that
+										offers 3D modeling and character design are the most expensive products according to steam tags.
+									</p>
+									<ul class="actions special">
+										<li><a class="button" id="genrePrice">Show complete data</a></li>
+									</ul>
+									<div id="dataGenrePrice" style="height:100px;overflow:auto;display:none;">
+										<table id="data">
+										</table>
+									</div>
+									<ul class="actions special">
+										<li><a class="button" href="data/avg_price_genres.csv" download="data/avg_price_genres.csv">Download data</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<h2><a href="#">Average playtime per gender<br /></a></h2>
+									</header>
+									<a class="image fit"><img src="images/Top10GenresbyTime.png" alt="" /></a>
+									<p>This headland didn't suprise us, we expected genres such as MMO and MOBAs to be the genres in which users 
+										expend more time. Also, we can see that software and programming applications are on this top due to the time 
+										necessary to develop projects on these apps.
+									</p>
+									<ul class="actions special">
+										<li><a class="button" id="genreTime">Show complete data</a></li>
+									</ul>
+									<div id="dataGenreTime" style="height:100px;overflow:auto;display:none;">
+										<table id="data">
+										</table>
+									</div>
+									<ul class="actions special">
+										<li><a class="button" href="data/avg_playtime_genres.csv" download="data/avg_playtime_genres.csv">Download data</a></li>
+									</ul>
+								</article>
+							</section>
+							<header>
+								<h3 style="text-align: center;"><a>Product sales</a></h3>
+							</header>
+							<section class="posts">
+								<article>
+									<header>
+										<h2><a href="#">Sales and average hours spent by users<br /></a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/SalesHours.png" alt="" /></a>
+									<p>Through this study, we have discovered that it exists a relationship between sales and playtime spent by
+										players in an application. It is important to say that there are only a few games in the higher sale scale,
+										and these games are the most famous games in the Steam library, so that's why their average playtime is so high
+										compared with other results such as the average playtime per gender.</p>
+										<ul class="actions special">
+											<li><a class="button" id="salesTime">Show complete data</a></li>
+										</ul>
+										<div id="dataSalesTime" style="height:100px;overflow:auto;display:none;">
+											<table id="data">
+											</table>
+										</div>
+								</article>
+								<article>
+									<header>
+										<h2><a href="#">Sales and average price of product<br /></a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/SalesPrice.png" alt="" /></a>
+									<p>We might see a correlation between sales and price, but we might not have enough information
+										to get to a detailed conclusion. Something curious we've found is that two sale ranges have only a 
+										few games on them and everyone of them is free to play.
+									</p>
+										<ul class="actions special">
+											<li><a class="button" id="salesPrice">Show complete data</a></li>
+										</ul>
+										<div id="dataSalesPrice" style="height:100px;overflow:auto;display:none;">
+											<table id="data">
+											</table>
+										</div>
+								</article>
+							</section>
+			</div>
+
+			<script>
+				function arrayToTable(tableData) {
+					var table = $('<table border="1" cellspacing="0" cellpadding="0" width="200" align="center"></table>');
+					$(tableData).each(function (i, rowData) {
+						var row = $('<tr></tr>');
+						$(rowData).each(function (j, cellData) {
+							row.append($('<td>'+cellData+'</td>'));
+						});
+						table.append(row);
+					});
+					return table;
+				}
+
+			$('#GenreNumber').click(function(){
+				$.ajax({
+				url:"data/Genres.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataGenre').style.display = "block";
+					$('#dataGenre').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#genreRecommend').click(function(){
+				$.ajax({
+				url:"data/genre_recommendations.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataGenreRecommend').style.display = "block";
+					$('#dataGenreRecommend').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#genrePrice').click(function(){
+				$.ajax({
+				url:"data/avg_price_genres.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataGenrePrice').style.display = "block";
+					$('#dataGenrePrice').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#genreTime').click(function(){
+				$.ajax({
+				url:"data/avg_playtime_genres.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataGenreTime').style.display = "block";
+					$('#dataGenreTime').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#salesTime').click(function(){
+				$.ajax({
+				url:"data/VentasHorasJugadas.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataSalesTime').style.display = "block";
+					$('#dataSalesTime').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#salesPrice').click(function(){
+				$.ajax({
+				url:"data/VentasPrecio.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataSalesPrice').style.display = "block";
+					$('#dataSalesPrice').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+    		});
+			</script>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
