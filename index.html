@@ -120,28 +120,45 @@
 								</article>
 								<article>
 									<header>
-										<span class="date">April 18, 2017</span>
-										<h2><a href="#">Ante mattis<br />
-										interdum dolor</a></h2>
+										<h2><a>Average price per genre</a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<a class="image fit"><img src="images/Top10ExpensiveGenres.png" alt="" /></a>
+									<p>We have also compared each genre and its average price. The results show us that the software that
+										offers 3D modeling and character design are the most expensive products according to steam tags.
+									</p>
 									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
+										<li><a class="button" id="genrePrice">Show complete data</a></li>
+									</ul>
+									<div id="dataGenrePrice" style="height:100px;overflow:auto;display:none;">
+										<table id="data">
+										</table>
+									</div>
+									<ul class="actions special">
+										<li><a class="button" href="data/avg_price_genres.csv" download="data/avg_price_genres.csv">Download data</a></li>
 									</ul>
 								</article>
 								<article>
 									<header>
-										<span class="date">April 14, 2017</span>
-										<h2><a href="#">Tempus sed<br />
-										nulla imperdiet</a></h2>
+										<h2><a href="#">Average playtime per gender<br /></a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<a class="image fit"><img src="images/Top10GenresByTime.png" alt="" /></a>
+									<p>This headland didn't suprise us, we expected genres such as MMO and MOBAs to be the genres in which users 
+										expend more time. Also, we can see that software and programming applications are on this top due to the time 
+										necessary to develop projects on these apps.
+									</p>
 									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
+										<li><a class="button" id="genreTime">Show complete data</a></li>
+									</ul>
+									<div id="dataGenreTime" style="height:100px;overflow:auto;display:none;">
+										<table id="data">
+										</table>
+									</div>
+									<ul class="actions special">
+										<li><a class="button" href="data/avg_playtime_genres.csv" download="data/avg_playtime_genres.csv">Download data</a></li>
 									</ul>
 								</article>
+							</section>
+							<section class="posts">
 								<article>
 									<header>
 										<span class="date">April 11, 2017</span>
@@ -283,6 +300,30 @@
 				{
 					document.getElementById('dataGenreRecommend').style.display = "block";
 					$('#dataGenreRecommend').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#genrePrice').click(function(){
+				$.ajax({
+				url:"data/avg_price_genres.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataGenrePrice').style.display = "block";
+					$('#dataGenrePrice').append(arrayToTable(Papa.parse(data).data));
+				}
+				});
+			});
+			
+			$('#genreTime').click(function(){
+				$.ajax({
+				url:"data/avg_playtime_genres.csv",
+				dataType:"text",
+				success:function(data)
+				{
+					document.getElementById('dataGenreTime').style.display = "block";
+					$('#dataGenreTime').append(arrayToTable(Papa.parse(data).data));
 				}
 				});
     		});
