@@ -74,11 +74,13 @@
 								<article>
 									<header>
 										<span class="date">April 24, 2017</span>
-										<h2><a href="#">Géneros de juego<br />
-										por veces que aparecen</a></h2>
+										<h2><a href="#">Number of Genre Appearance</a></h2>
 									</header>
 									<a href="#" class="image fit"><img src="images/Top10CommonGenres.png" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<p>This image shows the most common genres in the Steam store.
+										The study has lead us to see that the most common genre according to the Steam dta
+										is "Indie" which make sense because Steam is the biggest platform fro Indie games.
+									</p>
 									<ul class="actions special">
 										<li><a class="button" id="GenreNumber">Show csv</a></li>
 									</ul>
@@ -96,7 +98,7 @@
 									<a href="#" class="image fit"><img src="images/Top10CommonGenres.png" alt="" /></a>
 									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
 									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
+										<li><a class="button">Full Story</a></li>
 									</ul>
 								</article>
 								<article>
@@ -233,7 +235,7 @@
 
 			<script>
 				function arrayToTable(tableData) {
-					var table = $('<table></table>');
+					var table = $('<table border="1" cellspacing="0" cellpadding="0" width="200" align="center"></table>');
 					$(tableData).each(function (i, rowData) {
 						var row = $('<tr></tr>');
 						$(rowData).each(function (j, cellData) {
