@@ -33,7 +33,7 @@
       dataType:"text",
       success:function(data)
       {
-        $('body').append(arrayToTable(Papa.parse(data).data));
+        document.getElementById('data').innerHTML = Papa.parse(data).data;
       }
       });
     });
