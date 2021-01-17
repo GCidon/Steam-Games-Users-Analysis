@@ -38,9 +38,10 @@
       dataType:"text",
       success:function(data)
       {
-        $('body').append(arrayToTable(Papa.parse(data).data));
+        $('#dataGenre').append(arrayToTable(Papa.parse(data).data));
       }
       });
+    });
 
       $(document).ready(function(){
       $.ajax({
@@ -48,11 +49,11 @@
       dataType:"text",
       success:function(data)
       {
-        $('body').append(arrayToTable(Papa.parse(data).data));
+        $('#priceGenre').append(arrayToTable(Papa.parse(data).data));
       }
       });
+    });
 
-    $(document).ready(function(){
     $('#Genres').click(function(){
       $.ajax({
       url:"data/Genres.csv",
@@ -74,7 +75,6 @@
       }
       });
     });
-  });
 </script>
 
   <script>
