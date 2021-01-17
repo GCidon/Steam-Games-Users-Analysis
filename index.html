@@ -9,7 +9,12 @@
   <button id="Genres">Genres</button>
   <button id="Genre_price">Average price per gender</button>
   
-  <div style="height:100px;overflow:auto;">
+  <div id="dataGenre" style="height:100px;overflow:auto;">
+    <table id="data">
+    </table>
+  </div>
+
+  <div id="priceGenre" style="height:100px;overflow:auto;">
     <table id="data">
     </table>
   </div>
@@ -23,10 +28,29 @@
                 row.append($('<td>'+cellData+'</td>'));
             });
             table.append(row);
-            $('data').append(row);
         });
         return table;
     }
+
+    $(document).ready(function(){
+      $.ajax({
+      url:"data/Genres.csv",
+      dataType:"text",
+      success:function(data)
+      {
+        $('dataGenre').append(arrayToTable(Papa.parse(data).data));
+      }
+      });
+
+      $(document).ready(function(){
+      $.ajax({
+      url:"data/avg_price_genres.csv",
+      dataType:"text",
+      success:function(data)
+      {
+        $('dataGenre').append(arrayToTable(Papa.parse(data).data));
+      }
+      });
 
     $(document).ready(function(){
     $('#Genres').click(function(){
@@ -35,7 +59,7 @@
       dataType:"text",
       success:function(data)
       {
-        $('body').append(arrayToTable(Papa.parse(data).data));
+        $('dataGenre').append(arrayToTable(Papa.parse(data).data));
       }
       });
     });
@@ -46,7 +70,7 @@
       dataType:"text",
       success:function(data)
       {
-        $('body').append(arrayToTable(Papa.parse(data).data));
+        $('priceGenre').append(arrayToTable(Papa.parse(data).data));
       }
       });
     });
