@@ -15,8 +15,6 @@ sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 df = spark.read.format("csv").options(header=True, inferSchema=True, sep=",").load('/home/ubuntu/steam.csv')
 
-#print(df.select('steamspy_tags').rdd.collect())
-
 def w(x):
     print(x)
 
@@ -57,11 +55,11 @@ def countGenres(df):
     deptcolumns = ["genre", "count"]
     result = result.toDF(deptcolumns)
     result.show()
-    #try:
-    #    remove("/home/ubuntu/GENRESCOUNT")
-    #except Exception:
-    #    pass
-    #g.coalesce(1).write.option("inferSchema","true").csv("GENRESCOUNT",header='true')
+    try:
+        remove("/home/ubuntu/GENRESCOUNT")
+    except Exception:
+        pass
+    g.coalesce(1).write.option("inferSchema","true").csv("GENRESCOUNT",header='true')
     return result
 
 def RecommendationGenres(df):
@@ -72,11 +70,11 @@ def RecommendationGenres(df):
     newg = g.withColumn('percentage', g['sum(positive_ratings)'] /(g['sum(positive_ratings)'] + g['sum(negative_ratings)']))
     newg.show()
 
-    #try:
-    #    remove("/home/ubuntu/GENRESRECOMMENDATIONPERCENTAGE")
-    #except Exception:
-    #    pass
-    #newg.coalesce(1).write.option("inferSchema","true").csv("GENRERECOMMENDATIONS",header='true')
+    try:
+        remove("/home/ubuntu/GENRESRECOMMENDATIONPERCENTAGE")
+    except Exception:
+        pass
+    newg.coalesce(1).write.option("inferSchema","true").csv("GENRERECOMMENDATIONS",header='true')
     return newg
 
 def getMax(df, key_col, K):
@@ -92,12 +90,3 @@ def getMostRecommended(df, minimum):
     df = df.select('steamspy_tags', 'percentage')
     df = getMax(df, 'percentage', 10)
     return df
-
-
-maxPrice = getMax(genreMediaPrice(df), 'avg(price)', 10)
-maxPrice.show()
-maxPrice.coalesce(1).write.option("inferSchema","true").csv("MAXPRICE",header='true')
-
-#genreMediaTime(df)
-#genreMediaPrice(df)
-#RecommendationGenres(df)
