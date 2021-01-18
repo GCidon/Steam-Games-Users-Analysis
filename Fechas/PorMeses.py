@@ -20,7 +20,7 @@ x = np.arange(179)
 fig, ax = plt.subplots(figsize=(20,10))
 plt.bar(x, dicc.values())
 plt.xticks(x, dicc.keys())
-plt.title("Relación ventas - mes de publicación")
-plt.savefig("Juegos por mes all time")
+plt.title("Relación salida - mes de publicación")
+plt.show()
 
 
