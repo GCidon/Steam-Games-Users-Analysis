@@ -71,6 +71,7 @@
                         <!-- Repository -->
                         <section class="post">
                             <h2 style="text-align: center;">Repository</h2>
+                            <p style="text-align: center;">All our proyect can be easily found in our GitHub repository.</p>
                             <ul class="actions special">
                                 <li><a class="button" href="https://github.com/GCidon/Steam-Games-Users-Analysis" id="repos">Go to Repository</a></li>
                             </ul>
@@ -94,28 +95,31 @@
                         <!-- Guide -->
                         <section class="post">
                             <h2 style="text-align: center;">User Guide</h2>
-                            <p style="text-align: center;">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
-                                Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, 
-                                vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, 
-                                fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus 
-                                ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. 
-                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                                Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum 
-                                dolor sit amet nullam.
+                            <p style="text-align: center;">There are two ways to run our code. That is in local mode and in cluster mode, 
+                                which is possible using an AWS (Amazon Web Services) instance. In this section we explain how to use
+                                both options.
                             </p>
 
                                 <div class="row">
                                     <div class="col-6 col-12-small">
 
                                         <h3 style="text-align: center;">Local Mode</h3>
-                                        <p style="text-align: center;">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
-                                            Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, 
-                                            vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, 
-                                            fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus 
-                                            ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. 
-                                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                                            Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum 
-                                            dolor sit amet nullam.
+                                        <p>In order to run our applications in local mode using Linux Ubuntu or an 
+                                            Ubuntu virtual machine in Windows, we need:
+
+                                            <ul>
+												<li>Python installed</li>
+												<li>Spark installed</li>
+												<li>Steam.csv downloaded (you can find it in the dataset section of this page)</li>
+                                            </ul>
+                                            
+                                            Once we have all the requirements, we can easily run the code with the following command line:
+
+                                            <pre><code>$spark-submit file_name.py "argument" /</code></pre>
+
+                                            Where "argument" is only included for the execution of codes that need an argument, such as 
+                                            GameRecommendation.py, which needs a game as an argument in order to operate correctly.
+
                                         </p>
 
                                     </div>
