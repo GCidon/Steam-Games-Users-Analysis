@@ -19,7 +19,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a class="logo"> How does it work?</a>
+						<a class="logo"> Code in detail</a>
 					</header>
 
 				<!-- Nav -->
@@ -27,7 +27,8 @@
 						<ul class="links">
 							<li><a href="index.html">The Proyect</a></li>
                             <li><a href="Services.html">Services</a></li>
-							<li class="active"><a href="How-does-it-work.html">How does it work?</a></li>
+							<li><a href="How-does-it-work.html">How does it work?</a></li>
+							<li class="active"><a href="SoftwareDescription.html">Code in detail</a></li>
 							<li ><a href="About_us.html">About Us</a></li>
 						</ul>
 					</nav>
@@ -44,7 +45,7 @@
                                         software design in our applications.
                                     </p>
 								</header>
-								<h2>Extracting concrete<br /> data</h2>
+								<h2>Extracting concrete data</h2>
 								<p>In order to get results for our study, we had to separate information from the dataset
 									and reorganize it in a new dataset that would only contain information about the columns that we desired.
 								</p>
@@ -55,8 +56,24 @@
 									After that, we grouped the column we specified and managed the data from the other column to get the info we wannted.
 									In this case, we grouped each videogame gennre and calculated the average playtime for each one of them.
 								</p>
-								
+								<a href="#" class="image fit"><img src="images/GetTopFromElement.png" alt="" /></a>
+								<p>We also included a script which has been used for getting the top elements from a specific column that we are analyzing.
+									This method used pyspark window function to order by key the column given and getting top K elements from the data.
+								</p>
+								<h2>Videogame recommendation</h2>
+								<p>We have also developed a system to recommend the player different videogames according to their favorite genres.
+								</p>
+								<a href="#" class="image fit"><img src="images/RecommendGames.png" alt="" /></a>
+								<p>In this code, given another favorite game, it returns other 20 games that belong to the same genre.
+									This codes try to filter between most upvoted videogames in order to recommend the most played games according to the given videogame.
+									This method allows to show a player new videogames according to his most played applications.
+									It uses spark dataframes to filter between most recommended videogames and genres. After that, it groups the results 
+									and order them by playtime to get the top 20 videogames that might be of interest to the user.
+								</p>
 							</section>
+							<ul class="actions special">
+								<li><a class="button" href="data/Code.zip" download="data/Code.zip">Download code</a></li>
+							</ul>
 
 					</div>
 
