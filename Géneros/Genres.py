@@ -27,12 +27,11 @@ def genreMediaTime(df):
     g = g.groupBy('steamspy_tags')
     g = g.agg(avg('average_playtime'))
 
-    #try:
-    #    remove("/home/ubuntu/GENRESMEDIATIME")
-    #except Exception:
-    #    pass
-    #g.write.csv('GENRESMEDIATIME')
-    #g.coalesce(1).write.option("inferSchema","true").csv("GenresMediaTime",header='true')
+    try:
+        remove("/home/ubuntu/GENRESMEDIATIME")
+    except Exception:
+        pass
+    g.coalesce(1).write.option("inferSchema","true").csv("GenresMediaTime",header='true')
     return g
 
 def genreMediaPrice(df):
@@ -42,11 +41,11 @@ def genreMediaPrice(df):
     g = g.groupBy('steamspy_tags')
     g = g.agg(avg('price'))
 
-    #try:
-    #    remove("/home/ubuntu/GENRESMEDIAPRICE")
-    #except Exception:
-    #    pass
-    #g.coalesce(1).write.option("inferSchema","true").csv("GENRESMEDIAPRICE",header='true')
+    try:
+        remove("/home/ubuntu/GENRESMEDIAPRICE")
+    except Exception:
+        pass
+    g.coalesce(1).write.option("inferSchema","true").csv("GENRESMEDIAPRICE",header='true')
     return g
 
 def countGenres(df):
