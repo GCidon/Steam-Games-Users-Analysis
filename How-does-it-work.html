@@ -136,7 +136,7 @@
                                             
                                             Once we have all the requirements, we can run the code with the following command line:
 
-                                            <pre><code>$spark-submit --num-executors N --executor-cores M  "argument"</code></pre>
+                                            <pre><code>$spark-submit --num-executors N --executor-cores M  file_name.py "argument"</code></pre>
 
                                             Where:
                                             <ul>
@@ -150,19 +150,39 @@
                                         </p>
 
                                     </div>
+                                </section>
+                                <!-- Performance -->
+                                <section class="post">
+                                    <h2 style="text-align: center;">Performance</h2>
+                                    <p style="text-align: center;">We tested the performance of our scripts both locally 
+                                        and in an AWS cluster (m4.xlarge to be precise), trying many numer of cores. 
+                                        We tested the scrip GameRecommendation.py, since we consider its the most complex one 
+                                        regarding data processing out of our scripts. Howewer, to our surprise, we did not obtain 
+                                        the results we expected. We barely saw any difference in any of the tests, obtaining execution 
+                                        times around 14s for every execution. After thinking about it, we came to the conclusion that the execution times
+                                        barely change since the size of the data we are processing is not big enough to make a noticeable 
+                                        difference when processing in a cluster. 
+
+                                    </p>
+                                </section>
+
+
+
                                 </div>
 
-                            </p>
-                        </section>
-                    </div>
+                                                                </div>
+
+                                                            </p>
+                                                        </section>
+                                                    </div>
 
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul></li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+                                                <!-- Copyright -->
+                                                    <div id="copyright">
+                                                        <ul></li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+                                                    </div>
 
-			</div>
+                                            </div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
