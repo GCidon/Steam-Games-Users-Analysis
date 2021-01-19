@@ -23,5 +23,6 @@ plt.bar(x, num)
 plt.xticks(x, ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
 plt.title("Relación salida - mes de publicación")
 plt.show()
+#plt.savefig("MesesTotal.png")
 
 

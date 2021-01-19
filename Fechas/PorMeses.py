@@ -22,5 +22,6 @@ plt.bar(x, dicc.values())
 plt.xticks(x, dicc.keys())
 plt.title("Relación salida - mes de publicación")
 plt.show()
+#plt.savefig("PorMeses.png")
 
 
